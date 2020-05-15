@@ -1,8 +1,13 @@
+from functools import wraps
+
+
 def type_of_argument(func):
+    @wraps(func)
+
     def wrapper(*args):
-        if type(*args) == int:
+        if isinstance(*args, int):
             return func(*args)
-        elif type(*args) == str:
+        elif isinstance(*args, str):
             raise ValueError("string type is not supported")
         else:
             return 0
