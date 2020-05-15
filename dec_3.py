@@ -1,8 +1,12 @@
+from functools import wraps
+
+
 def cache(func):
     cache = {}
     count_new_call = 0   # переменная для хранения вызовов функции с новыми аргументами
     count_cache_call = 0   # переменная для хранения вызовов функции из кэша
 
+    @wraps(func)
     def wrapper(*args):
         if args not in cache:
             cache[args] = func(*args)
