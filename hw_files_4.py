@@ -1,5 +1,5 @@
 def read_file(file="input4.txt"):
-    """Функция для считывания файла"""
+    """Function to read the file"""
     res = []
     with open(file, encoding='utf-8') as f:
         for i in f.readlines():
@@ -11,9 +11,9 @@ def read_file(file="input4.txt"):
 
 
 def create_dict(info):
-    """Функция для создания словаря"""
+    """Function to create a dict"""
     """
-    dict = {ip: {counter:*}, {дни недели: []}, {hours: []}}
+    dict = {ip: {counter:*}, {weekdays: []}, {hours: []}}
     """
     dict_info = dict()
     for i in info:
@@ -32,23 +32,23 @@ def create_dict(info):
 
 
 def write_to_file(info, mode='w', file="output4.txt"):
-    """Функция для записи в  файл"""
+    """Function to write to file"""
     with open(file, mode, encoding='utf-8') as f:
         for line in info:
             f.write(' '.join(map(str, line)) + '\n')
 
 
 def result_info(file="input4.txt"):
-    """Функция для создания результирующего массива"""
+    """Function to create the resulting list"""
     dict_info = create_dict(read_file())
     result = []
     dict_of_hours = dict()
-    for ip, info in dict_info.items():  # прохожусь по словарю с информацией
-        for i in info['hours']:  # считаю для каждого часа кол-во посещений
+    for ip, info in dict_info.items():  # I go through the dictionary with information
+        for i in info['hours']:  # I consider for each hour the number of visits
             if i not in dict_of_hours:
                 dict_of_hours[i] = 0
             dict_of_hours[i] += 1
-        most_frequent_day = 0  # счетчик для самого частого для для каждого ip
+        most_frequent_day = 0  # counter for the most frequent for for each ip
         most_frequent_word = info['weekdays'][0]
         for i in info['weekdays']:
             if most_frequent_day < info['weekdays'].count(i):
@@ -58,7 +58,7 @@ def result_info(file="input4.txt"):
 
     max_number = 0
     most_frequent_hour = 0
-    for hour, number in dict_of_hours.items():  # прохожусь по словарю с часами, чтобы найти самый популярный
+    for hour, number in dict_of_hours.items():  # I go through the dict with the hours to find the most popular
         if number > max_number:
             max_number = number
             most_frequent_hour = hour
