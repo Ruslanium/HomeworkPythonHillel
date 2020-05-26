@@ -1,5 +1,5 @@
 def read_file(file="input.txt"):
-    """Функция для считывания файла"""
+    """Function to read the file"""
     res = []
     with open(file, encoding='utf-8') as f:
         for i in f.readlines():
@@ -8,15 +8,15 @@ def read_file(file="input.txt"):
 
 
 def write_to_file(line, file="output.txt"):
-    """Функция для записи в  файл"""
+    """Function to write to file"""
     with open(file, 'w', encoding='utf-8') as f:
         for i in line:
             f.write(' '.join(i) + '\n')
 
 
 def create_dict(lines):
-    """Функция для создания словаря"""
-    dict_line = dict()  # словарь {линия: кол-во слов на удаление}
+    """Function to create a dictionary"""
+    dict_line = dict()  # dict {line: number of words to delete}
     for i in range(len(lines)):
         for j in range(len(lines[i])):
             if 3 < len(lines[i][j]) <= 5:
@@ -27,7 +27,7 @@ def create_dict(lines):
 
 
 def delete_word(file="input.txt"):
-    """Функция удаления слов"""
+    """Word delete function"""
     lines = read_file(file)
     dict_line = create_dict(lines)
     for key, value in dict_line.items():
