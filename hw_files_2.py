@@ -1,5 +1,5 @@
 def read_file(file="input2.txt"):
-    """Функция для считывания файла"""
+    """Function to read the file"""
     res = []
     with open(file, encoding='utf-8') as f:
         for i in f.readlines():
@@ -8,8 +8,8 @@ def read_file(file="input2.txt"):
 
 
 def create_dict(lines):
-    """Функция для создания словаря"""
-    name_phones = dict()  # словарь {фамилия: [телефоны]}
+    """Function to create a dict"""
+    name_phones = dict()  # dict {surname: [phones]}
     for i in lines:
         if i[0] not in name_phones:
             name_phones[i[0]] = [i[1]]
@@ -28,7 +28,7 @@ def surname_verification(file="input2.txt"):
     result = read_file()
     name_phones = create_dict(result)
     for name, phones in name_phones.items():
-        if name.startswith('К') or name.startswith('С'):  # проверка на первую букву фамилии
+        if name.startswith('К') or name.startswith('С'):  # check on the first letter of a surname
             record = "{0} {1}{2}".format(name, ' '.join(phones), '\n')
             write_to_file(record)
 
