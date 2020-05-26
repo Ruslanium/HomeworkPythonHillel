@@ -1,5 +1,5 @@
 def read_file(file="input3.txt"):
-    """Функция для считывания файла"""
+    """Function to read the file"""
     res = []
     with open(file, encoding='utf-8') as f:
         for i in f.readlines():
@@ -8,7 +8,7 @@ def read_file(file="input3.txt"):
 
 
 def max_len(arr):
-    """Считаем максимальную длину строки в файле"""
+    """Consider the maximum line length in the file"""
     len_max = 0
     for i in arr:
         len_max = max(len_max, len(i))
@@ -16,7 +16,7 @@ def max_len(arr):
 
 
 def write_to_file(arr, mode='w', file="output3.txt"):
-    """Функция для записи в  файл"""
+    """Function to write to file"""
     with open(file, mode, encoding='utf-8') as f:
         for i in arr:
             f.write(i)
@@ -24,7 +24,7 @@ def write_to_file(arr, mode='w', file="output3.txt"):
 
 
 def alignment(file="input3.txt"):
-    """Выравниваем по правому краю"""
+    """Align Right"""
     li = read_file(file)
     lines_max_len = max_len(li)
     res = []
