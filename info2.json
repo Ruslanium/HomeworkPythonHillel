@@ -1,0 +1,8 @@
+{
+  "line 3" : [1234],
+  "line 4" : [232],
+  "info" : [[1, 2, 3], {"inf" : "something"}],
+  "dict" : [{"dict1" : 1,
+            "dict2" :  2,
+            "dict3" :  3}]
+}
