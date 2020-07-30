@@ -1,0 +1,18 @@
+class Singleton(type):
+
+    def __call__(cls, *args, **kwargs):
+        _instances = {}
+
+        def __call__(cls, *args, **kwargs):
+            if cls not in cls._instances:
+                cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+            return cls._instances[cls]
+
+
+class MyClass(metaclass=Singleton):
+    pass
+
+
+c = MyClass()
+b = MyClass()
+assert id(c) == id(b)
